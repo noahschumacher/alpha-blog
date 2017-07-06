@@ -5,4 +5,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
 
+
+  # This gives us: index, create, new, edit, show, update, destroy
+  resources :articles
+
 end
