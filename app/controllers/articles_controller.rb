@@ -4,10 +4,12 @@ class ArticlesController < ApplicationController
 		@articles = Article.all
 	end
 
+
 	# Create the new page (articles/new)
 	def new
 		@article = Article.new
 	end
+
 
 	# This is the edit page
 	def edit
@@ -26,8 +28,8 @@ class ArticlesController < ApplicationController
 		else
 			render 'edit'
 		end
-
 	end
+
 
 	# Add button functionality (article/create)
 	def create
@@ -43,12 +45,20 @@ class ArticlesController < ApplicationController
 		# If validations not completed...
 		else
 			render 'new'
-		end
-		
+		end	
 	end
+
 
 	def show
 		@article = Article.find(params[:id])
+	end
+
+
+	def destroy
+		@article = Article.find(params[:id])
+		@article.destroy
+		flash[:notice] = "Article was succesfully deleted"
+		redirect_to article_path
 	end
 
 
