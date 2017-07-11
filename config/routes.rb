@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
 
+  # When user goes to /signup sends them to user controller, new action
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 
   # This gives us: index, create, new, edit, show, update, destroy
   resources :articles
