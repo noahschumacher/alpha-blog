@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
 
 		# Create instance variable with article params in private method
 		@article = Article.new(article_params)
+		@article.user = User.first
 
 		# Check is article was succesfully created (validations in models/article.rb)
 		if @article.save
